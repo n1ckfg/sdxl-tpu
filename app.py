@@ -78,15 +78,15 @@ def apply_style(style_name: str, positive: str, negative: str = "") -> Tuple[str
     return p.replace("{prompt}", positive), n + negative
 
 
-word_list_dataset = load_dataset("google/word-list-sd", data_files="list.txt")
-word_list = word_list_dataset["train"]['text']
+#word_list_dataset = load_dataset("google/word-list-sd", data_files="list.txt")
+#word_list = word_list_dataset["train"]['text']
 
 #gradio.helpers.CACHED_FOLDER="/data/cache"
 
 def infer(prompt, negative="low_quality", scale=7, style_name=None, profile: gr.OAuthProfile | None = None):
-    for filter in word_list:
-        if re.search(rf"\b{filter}\b", prompt):
-            raise gr.Error("Please try again with a different prompt")
+    #for filter in word_list:
+        #if re.search(rf"\b{filter}\b", prompt):
+            #raise gr.Error("Please try again with a different prompt")
 
     prompt, negative = apply_style(style_name, prompt, negative)
     images = []
