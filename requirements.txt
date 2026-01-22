@@ -1,2 +1,2 @@
 datasets
-gradio
+gradio==3.44.4
